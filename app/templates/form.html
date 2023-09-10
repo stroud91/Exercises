@@ -1,22 +1,13 @@
-<!doctype html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <title>Sample Form</title>
-</head>
+{% block title %}The Form{% endblock %}
 
-<body>
-    <h1>Sample Form</h1>
-    <!-- form starts here -->
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.name.label }}
-            {{ form.name(size=32) }}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <!-- form ends above -->
-</body>
-
-</html>
+{% block content %}
+{{ super() }}
+<h1>Please fill out the form</h1>
+<form method="POST" action="/theform">
+                          <input type="text" name="name">
+                          <input type="text" name="location">
+                          <input type="submit" value="Submit">
+</form>
+{% endblock %}
